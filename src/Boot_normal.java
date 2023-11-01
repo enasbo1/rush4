@@ -3,7 +3,7 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Random;
 
-public class Boot implements Alter{
+public class Boot_normal implements Alter{
     private int pv;
     private int soin = 1;
     private final Random rand = new Random();
@@ -13,7 +13,7 @@ public class Boot implements Alter{
     public String name;
     public double offence;
     public double defence;
-    Boot(String name, int pv, double offence, double defence, Map<String, Integer> attack_list){
+    Boot_normal(String name, int pv, double offence, double defence, Map<String, Integer> attack_list){
         if ((offence>=1) && (offence<=2)){
             this.offence = offence;
 
@@ -35,7 +35,6 @@ public class Boot implements Alter{
         actions.add("get information");
         actions.add("attack");
         actions.add("heal");
-        actions.add("run away");
     }
 
     @Override
