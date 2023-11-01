@@ -11,7 +11,7 @@ public class Main {
         Alter perso2 = new Player("titi", 25,2,1, attack);
         while (c){
             perso1.turn(perso2);
-            c = c & perso2.alive();
+            c = c & perso2.alive( );
             if (c){
                 perso2.turn(perso1);
                 c = c & perso1.alive();
