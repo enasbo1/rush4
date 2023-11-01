@@ -7,8 +7,8 @@ public class Main {
         attack.put("Ultralaser", 15);
         attack.put("pistolet à eau", 1);
         attack.put("Die", 10000);
-        Alter perso1 = new Player("toto", 25, 1, 0.3, attack);
-        Alter perso2 = new Player("titi", 25,2,1, attack);
+        Alter perso1 = new Player("player", 25, 1, 1, attack);
+        Alter perso2 = new Boot("boot", 25,2,2, attack);
         while (c){
             perso1.turn(perso2);
             c = c & perso2.alive( );
