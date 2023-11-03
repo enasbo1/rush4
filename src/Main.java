@@ -3,12 +3,15 @@ public class Main {
     public static Scanner scan = new Scanner(System.in);
     public static boolean c = true;
     public static void main(String[] args) {
-        Map<String, Integer> attack = new HashMap<>();
-        attack.put("Ultralaser", 15);
-        attack.put("pistolet à eau", 1);
-        attack.put("Die", 10000);
+        Map<String, Integer[]> attack = new HashMap<>();
+        Integer[] ul = {15,5};
+        attack.put("Ultralaser", ul);
+        Integer[] pae = {1,1};
+        attack.put("pistolet à eau", pae);
+        Integer[] d = {1000,9};
+        attack.put("Die", d);
         Alter perso1 = new Player("player", 25, 1, 1, attack);
-        Alter perso2 = new Boot_normal("boot", 25,2,2, attack);
+        Alter perso2 = new Boot_hard("boot", 25,1.2,0.5, attack);
         while (c){
             perso1.turn(perso2);
             c = c & perso2.alive( );

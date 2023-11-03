@@ -1,12 +1,15 @@
 import java.util.Map;
 
-public class Boot_normal extends Alter_base{
-    Boot_normal(String name, int pv, double offence, double defence, Map<String, Integer[]> attack_list){
-        super(name, pv, offence, defence, attack_list);
+public class Boot_hard extends Alter_base{
+    Boot_hard(String name, int pv, double offence, double defence, Map<String, Integer[]> attack_list){
+        super(name,pv, offence, defence, attack_list);
         actions.add("get information");
         actions.add("attack");
     }
     private void turn_in(Alter enemi){
+        if ((this.pv<(this.life*0.25))){
+            this.heal();
+        }
         switch (this.actions.get(rand.nextInt(0,this.actions.size()))){
             case "get information":
                 enemi.get_info();
@@ -32,5 +35,6 @@ public class Boot_normal extends Alter_base{
     public void turn(Alter enemi) {
         System.out.println(this.name + "'s turn");
         this.turn_in(enemi);
+
     }
 }
