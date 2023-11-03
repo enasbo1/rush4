@@ -4,6 +4,12 @@ public class Main {
     public static boolean c = true;
     public static void main(String[] args) {
         Map<String, Integer[]> attack = new HashMap<>();
+        ArrayList<String> difficulty = new ArrayList<String>(3);
+
+        difficulty.add("Easy");
+        difficulty.add("Normal");
+        difficulty.add("Hard");
+
         Integer[] ul = {15,5};
         attack.put("Ultralaser", ul);
         Integer[] pae = {1,1};
@@ -11,7 +17,18 @@ public class Main {
         Integer[] d = {1000,9};
         attack.put("Die", d);
         Alter perso1 = new Player("player", 25, 1, 1, attack);
-        Alter perso2 = new Boot_hard("boot", 25,1.2,0.5, attack);
+        Alter perso2;
+        switch (choose(difficulty)){
+            case "Easy":
+                perso2 = new Boot_easy("boot", 25,1.2,0.5, attack);
+                break;
+            case "Normal":
+                perso2 = new Boot_normal("boot", 25,1.2,0.5, attack);
+                break;
+            default:
+                perso2 = new Boot_hard("boot", 25,1.2,0.5, attack);
+                break;
+        }
         while (c){
             perso1.turn(perso2);
             c = c & perso2.alive( );

@@ -3,8 +3,7 @@ import java.util.Map;
 public class Boot_easy extends Alter_base{
     Boot_easy(String name, int pv, double offence, double defence, Map<String, Integer[]> attack_list){
         super(name, pv, offence, defence, attack_list);
-        actions.add("get information");
-        actions.add("attack");
+        actions.add("pass");
     }
     private void turn_in(Alter enemi){
         switch (this.actions.get(rand.nextInt(0,this.actions.size()))){
